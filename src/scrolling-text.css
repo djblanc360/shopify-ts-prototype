@@ -1,0 +1,49 @@
+.scrolling-text-section {
+    --items-spacing: 2em;
+    position: relative;
+    text-align: center;
+    line-height: 1.2;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0em;
+}
+
+.scrolling-text-wrapper {
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    bottom: 0;
+}
+
+.scrolling-text-wrapper:hover .scrolling-text-group {
+    animation-play-state: paused; /* Stop the animation when hovered */
+}
+
+.scrolling-text-group {
+    animation-duration: 14s;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    animation-name: scrolling-text;
+    white-space: nowrap;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-play-state: running; /* Ensure animation runs by default */
+}
+
+.scrolling-text-group .item {
+    display: flex;
+    align-items: center;
+    column-gap: calc(var(--items-spacing) / 2);
+    flex-shrink: 0;
+}
+
+@keyframes scrolling-text {
+    0% {
+        transform: translateX(100%); /* Start fully off the screen to the right */
+    }
+    100% {
+        transform: translateX(-100%); /* Move fully off the screen to the left */
+    }
+}

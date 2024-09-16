@@ -1,0 +1,81 @@
+<section class="relative flex items-center justify-center h-screen text-white bg-center bg-cover">
+  <div class="absolute inset-0">
+    {%- if section.settings.background_image != blank -%}
+      {% comment %} Desktop Background  {% endcomment %}
+      <div class="hidden w-full h-full md:block" style="background-image: url({{ section.settings.background_image | img_url: 'master' }}); background-size: cover; background-position: center;"></div>
+    {%- endif -%}
+
+    {%- if section.settings.mobile_background_image != blank -%}
+      {% comment %} Mobile Background {% endcomment %}
+      <div class="block w-full h-full md:hidden" style="background-image: url({{ section.settings.mobile_background_image | img_url: 'master' }}); background-size: cover; background-position: center;"></div>
+    {%- endif -%}
+  </div>
+  <div class="flex items-center justify-start w-full h-full">
+    <div class="z-10">
+      <div class="ml-[5%] mt-[20%]">
+        <div class="px-16 py-12 text-center hero-content md:max-x-[40%]">
+
+          {%- if section.settings.hero_heading != blank -%}
+            <h1 class="text-5xl font-bold">{{ section.settings.hero_heading }}</h1>
+          {%- endif -%}
+      
+          {%- if section.settings.hero_text != blank -%}
+            <p class="mt-4 text-xl">{{ section.settings.hero_text }}</p>
+          {%- endif -%}
+      
+          {%- if section.settings.cta_link != blank and section.settings.cta_text != blank -%}
+            <a href="{{ section.settings.cta_link }}" class="inline-block px-8 py-3 mt-6 text-white transition rounded bg-primary hover:bg-white hover:text-primary">
+              {{ section.settings.cta_text }}
+            </a>
+          {%- endif -%}
+      
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_image",
+      "label": "Mobile Background Image"
+    },
+    {
+      "type": "text",
+      "id": "hero_heading",
+      "label": "Hero Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_text",
+      "label": "Hero Text"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Call to Action Link"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Call to Action Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
