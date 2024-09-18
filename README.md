@@ -5,21 +5,82 @@ This a skeleton Shopify theme using **TypeScript**, **Tailwind CSS**, and **Vite
 ## Project Structure
 
 ```bash
-/root
-├── /asset              # Compiled assets (JavaScript, CSS) are placed here for Shopify
-├── /src                # Source files (TypeScript, CSS)
-│   ├── main.ts         # Main TypeScript file for JS logic
-│   ├── main.css        # Tailwind CSS entry point
-├── layout/
-│   ├── theme.liquid 
-├── snippets/
-├── sections/
-├── templates/
-├── tailwind.config.js    # Tailwind CSS configuration
-├── vite.config.js       # Vite build configuration
-├── postcss.config.js    # PostCSS configuration for Tailwind CSS 
-├── package.json
-└── .shopifyignore       # Ignore non-production files like node_modules
+root/
+├── server/                          # Go backend
+│   ├── cmd/                         # main app
+│   │   └── api/
+│   │       └── main.go              # entry point for the Go backend
+│   ├── internal/                    # private app and library code
+│   │   ├── handlers/                # HTTP handlers for  endpoints
+│   │   │   ├── products.go
+│   │   │   ├── collections.go
+│   │   │   ├── search.go
+│   │   │   ├── cart.go
+│   │   │   └── auth.go
+│   │   ├── models/                  # data models
+│   │   │   ├── product.go
+│   │   │   ├── collection.go
+│   │   │   ├── user.go
+│   │   │   └── cart.go
+│   │   ├── services/                # business logic and external integrations
+│   │   │   ├── shopify_service.go   # NO IMPLEMENTATION YET
+│   │   │   └── search_service.go    # NO IMPLEMENTATION YET
+│   │   ├── middleware/              # custom middleware
+│   │   │   ├── auth_middleware.go
+│   │   │   └── logging_middleware.go
+│   │   ├── config/                  # config files and environment variables
+│   │   │   └── config.go
+│   │   └── utils/
+│   │       └── utils.go
+│   ├── .env                         # backend environment variables
+│   ├── go.mod                       # Go module file
+│   └── go.sum                       # Go dependencies
+│
+├── client/                          # React frontend
+│   ├── public/
+│   │   ├── index.html
+│   ├── src/
+│   │   ├── assets/
+│   │   │   ├── logo.svg
+│   │   ├── components/
+│   │   │   ├── Header.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   ├── ProductCard.tsx      # renders a single product item
+│   │   │   ├── Collection.tsx       # renders collection of productst
+│   │   │   └── .../
+│   │   ├── pages/
+│   │   │   ├── Home/
+│   │   │   │   ├── HomePage.tsx
+│   │   │   ├── Product/
+│   │   │   │   ├── ProductPage.tsx
+│   │   │   ├── Cart/
+│   │   │   └── .../
+│   │   ├── hooks/                   # custom hooks
+│   │   │   ├── useFetch.ts          # fetch API
+│   │   │   └── useCollectionData.ts # fetch collection data
+│   │   ├── services/                # API calls to backend
+│   │   │   ├── api.ts               # Base API config
+│   │   │   ├── productService.ts
+│   │   │   └── collectionService.ts
+│   │   ├── contexts/                # global state management
+│   │   │   ├── CartContext.tsx
+│   │   ├── types/                   # TypeScript type definitions
+│   │   │   ├── Product.ts
+│   │   │   ├── Collection.ts
+│   │   ├── utils/                   # Utility functions and helpers
+│   │   │   ├── formatPrice.ts
+│   │   │   └── debounce.ts
+│   │   ├── App.tsx                  # main component
+│   │   ├── index.tsx                # entry point
+│   │   ├── react-app-env.d.ts       # TypeScript declarations
+│   │   └── styles/                  # CSS/SCSS/Tailwind CSS
+│   │       └─── tailwind.css
+│   ├── package.json                 # frontend dependencies and scripts
+│   ├── tsconfig.json                # TypeScript config
+│   ├── vite.config.ts               # Vite config
+│   └── .env                         # frontend environment variables
+└── README.md
+
 ```
 
 ## Features
