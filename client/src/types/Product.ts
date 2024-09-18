@@ -61,7 +61,7 @@ export interface Product {
   published_at: string
   template_suffix?: string | null
   published_scope?: string
-  tags: string
+  tags: string[]
   status: string
   admin_graphql_api_id: string
   variants: ProductVariant[]
