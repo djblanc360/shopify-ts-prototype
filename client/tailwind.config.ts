@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from 'tailwindcss';
+
+const config: Config = {
   content: [
     './**/*.liquid',           // Watch for Tailwind classes in all .liquid files
     './src/**/*.{js,ts,jsx,tsx}',  // Include source files for Tailwind classes
@@ -67,3 +68,5 @@ module.exports = {
   ],
   plugins: [],                  // Add Tailwind plugins here if required
 };
+
+export default config;
