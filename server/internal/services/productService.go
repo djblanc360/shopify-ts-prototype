@@ -32,7 +32,7 @@ func FetchProduct(id string) (*models.Product, error) {
 		return nil, errors.New("failed to fetch product")
 	}
 	var result struct {
-		Product Product `json:"product"`
+		Product models.Product `json:"product"`
 	}
 
 	err = json.NewDecoder(resp.Body).Decode(&result)

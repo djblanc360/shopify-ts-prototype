@@ -12,8 +12,8 @@ export default defineConfig({
     outDir: path.resolve(__dirname, 'assets'),  // Output the build directly into Shopify's assets directory
     rollupOptions: {
       input: {
-        main: './src/main.ts',   // Entry point for TypeScript
-        styles: './src/main.css' // Entry point for Tailwind CSS or other CSS
+        main: './src/index.tsx',   // Entry point for TypeScript
+        styles: './src/styles/tailwind.css' // Entry point for Tailwind CSS or other CSS
       },
       output: {
         entryFileNames: '[name].js',    // JavaScript output in assets

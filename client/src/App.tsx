@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import HomePage from '@pages/Home/HomePage'
 import ProductPage from '@pages/Product/ProductPage'
 // import Header from '@components/Header'
-// import Footer from '@components/Footer'
 
 const App: React.FC = () => {
   return (
@@ -16,7 +15,6 @@ const App: React.FC = () => {
             {/* Add other routes as needed */}
           </Routes>
         </main>
-        {/* <Footer /> */}
       </div>
     </Router>
   );

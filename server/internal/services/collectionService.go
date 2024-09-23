@@ -32,7 +32,7 @@ func FetchCollection(id string) (*models.Collection, error) {
 		return nil, errors.New("failed to fetch product")
 	}
 	var result struct {
-		Collection Collection `json:"collection"`
+		Collection models.Collection `json:"collection"`
 	}
 
 	err = json.NewDecoder(resp.Body).Decode(&result)

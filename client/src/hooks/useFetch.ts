@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react"
 
-// or make a promise factory
-
-export const useFetch = <T>(fetchFunction: () => Promise<T>, dependencies: any[] = []) => {
+// promise factory
+export const useFetch = <T>(fetchFunction: () => Promise<T>, dependencies: unknown[] = []) => {
     const [data, setData] = useState<T | null>(null)
     const [loading, setLoading] = useState<boolean>(true)
     const [error, setError] = useState<string | null>(null)

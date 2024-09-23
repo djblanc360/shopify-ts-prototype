@@ -1,10 +1,11 @@
 import type { Collection } from '../types/Collection'
 
-export const getCollection = async (collectionId: string): Promise<Collection> => {
-    const response = await fetch(`/api/collections/${collectionId}`)
+export const getCollection = async (id: string): Promise<Partial<Collection>> => {
+    const response = await fetch(`/api/collections/${id}`)
     if (!response.ok) {
       throw new Error('Failed to fetch collection')
     }
     const data = await response.json()
-    return data.collection as Collection  // Assuming the API response structure
+    console.log("getCollection: ", data)
+    return data.collection as Collection  // see postman npm-test-shopify / collections
 }
